@@ -1,24 +1,39 @@
 <div id="game-container">
-<div class="flex flex-col items-center justify-center min-h-full p-6 bg-gray-50">
-    <div class="text-center max-w-sm">
-        <h1 class="text-4xl font-bold text-gray-900 mb-2">Soc Ops</h1>
-        <p class="text-lg text-gray-600 mb-8">Social Bingo</p>
-
-        <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 mb-8">
-            <h2 class="font-semibold text-gray-800 mb-3">How to play</h2>
-            <ul class="text-left text-gray-600 text-sm space-y-2">
-                <li>• Find people who match the questions</li>
-                <li>• Tap a square when you find a match</li>
-                <li>• Get 5 in a row to win!</li>
-            </ul>
+<div class="start-screen">
+    <div class="start-orbs">
+        <div class="start-orb">B</div>
+        <div class="start-orb">I</div>
+        <div class="start-orb">N</div>
+        <div class="start-orb">G</div>
+        <div class="start-orb">O</div>
+    </div>
+    <div class="start-content">
+        <div class="start-badge"><span aria-hidden="true">⭐</span> Social Bingo <span aria-hidden="true">⭐</span></div>
+        <h1 class="start-title">Soc Ops</h1>
+        <span class="start-title-accent"></span>
+        <p class="start-tagline">Find your people. Win the room.</p>
+        <div class="start-rules">
+            <p class="start-rules-title">How to play</p>
+            <div class="start-rule">
+                <div class="rule-step">1</div>
+                <span>Find people who match the questions on your card</span>
+            </div>
+            <div class="start-rule">
+                <div class="rule-step">2</div>
+                <span>Tap a square when you find a match</span>
+            </div>
+            <div class="start-rule">
+                <div class="rule-step">3</div>
+                <span>Get 5 in a row to win!</span>
+            </div>
         </div>
-
         <button
             hx-post="/start"
             hx-target="#game-container"
             hx-swap="outerHTML"
-            class="w-full bg-accent text-white font-semibold py-4 px-8 rounded-lg text-lg active:bg-accent-light transition-colors">
+            class="start-btn">
             Start Game
+            <span class="start-btn-arrow">→</span>
         </button>
     </div>
 </div>
