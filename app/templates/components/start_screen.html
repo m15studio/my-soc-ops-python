@@ -1,25 +1,40 @@
 <div id="game-container">
-<div class="flex flex-col items-center justify-center min-h-full p-6 bg-gray-50">
-    <div class="text-center max-w-sm">
-        <h1 class="text-4xl font-bold text-gray-900 mb-2">Soc Ops</h1>
-        <p class="text-lg text-gray-600 mb-8">Social Bingo</p>
+<div class="ss-root">
+    <div class="ss-grid-bg"></div>
 
-        <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 mb-8">
-            <h2 class="font-semibold text-gray-800 mb-3">How to play</h2>
-            <ul class="text-left text-gray-600 text-sm space-y-2">
-                <li>• Find people who match the questions</li>
-                <li>• Tap a square when you find a match</li>
-                <li>• Get 5 in a row to win!</li>
-            </ul>
+    <div class="ss-content">
+        <div class="ss-hero">
+            <div class="ss-eyebrow">&#9632; Social Bingo</div>
+            <h1 class="ss-title">Soc Ops</h1>
+            <p class="ss-tagline">Find your people. Fill your card. Win the room.</p>
         </div>
 
-        <button
-            hx-post="/start"
-            hx-target="#game-container"
-            hx-swap="outerHTML"
-            class="w-full bg-accent text-white font-semibold py-4 px-8 rounded-lg text-lg active:bg-accent-light transition-colors">
-            Start Game
-        </button>
+        <div class="ss-steps">
+            <h2 class="ss-steps-heading">How to play</h2>
+            <div class="ss-step ss-step--1">
+                <span class="ss-step-num">01</span>
+                <p class="ss-step-text">Find people who match each square</p>
+            </div>
+            <div class="ss-step ss-step--2">
+                <span class="ss-step-num">02</span>
+                <p class="ss-step-text">Tap to mark when you find a match</p>
+            </div>
+            <div class="ss-step ss-step--3">
+                <span class="ss-step-num">03</span>
+                <p class="ss-step-text">Get 5 in a row to win!</p>
+            </div>
+        </div>
+
+        <div class="ss-cta-wrap">
+            <button
+                hx-post="/start"
+                hx-target="#game-container"
+                hx-swap="outerHTML"
+                class="ss-cta">
+                <span class="ss-cta-text">Start Game</span>
+                <span class="ss-cta-arrow">&#8594;</span>
+            </button>
+        </div>
     </div>
 </div>
 </div>
