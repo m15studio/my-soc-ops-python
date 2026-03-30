@@ -1,14 +1,8 @@
 <div class="grid grid-cols-5 w-full mx-auto aspect-square" style="max-width: 28rem; gap: 2px;">
     {% for square in session.board %}
     {% set is_winning = square.id in session.winning_square_ids %}
-    <button
-        {% if not square.is_free_space %}
-        hx-post="/toggle/{{ square.id }}"
-        hx-target="#game-container"
-        hx-swap="outerHTML"
-        {% endif %}
-        {% if square.is_free_space %}disabled{% endif %}
-        class="relative flex items-center justify-center p-1 text-center transition-colors select-none text-xs leading-tight
+    <button {% if not square.is_free_space %} hx-post="/toggle/{{ square.id }}" hx-target="#game-container"
+        hx-swap="outerHTML" {% endif %} {% if square.is_free_space %}disabled{% endif %} class="relative flex items-center justify-center p-1 text-center transition-colors select-none text-xs leading-tight
         {%- if is_winning %} winning-cell
         {%- elif square.is_marked %} bg-marked border-marked-border
         {%- else %} bg-white text-gray-700

@@ -1,35 +1,32 @@
 <div id="game-container">
-<div class="flex flex-col min-h-full" style="background: var(--bg);">
-    <!-- Header -->
-    <header class="flex items-center justify-between border-b" style="padding: 0.875rem 1rem; background: var(--surface);">
-        <button
-            hx-post="/reset"
-            hx-target="#game-container"
-            hx-swap="outerHTML"
-            class="text-sm transition-colors"
-            style="color: var(--muted); padding: 0.375rem 0.625rem; border-radius: 2px;"
-            onmouseenter="this.style.color='var(--ink)'"
-            onmouseleave="this.style.color='var(--muted)'">
-            ← Back
-        </button>
-        <span class="font-serif tracking-tight" style="font-size: 1.25rem; color: var(--ink);">Soc Ops</span>
-        <div class="w-16"></div>
-    </header>
+    <div class="flex flex-col min-h-full" style="background: var(--bg);">
+        <!-- Header -->
+        <header class="flex items-center justify-between border-b"
+            style="padding: 0.875rem 1rem; background: var(--surface);">
+            <button hx-post="/reset" hx-target="#game-container" hx-swap="outerHTML" class="text-sm transition-colors"
+                style="color: var(--muted); padding: 0.375rem 0.625rem; border-radius: 2px;"
+                onmouseenter="this.style.color='var(--ink)'" onmouseleave="this.style.color='var(--muted)'">
+                ← Back
+            </button>
+            <span class="font-serif tracking-tight" style="font-size: 1.25rem; color: var(--ink);">Soc Ops</span>
+            <div class="w-16"></div>
+        </header>
 
-    <!-- Bingo banner -->
-    {% if session.has_bingo %}
-    <div class="text-center text-sm" style="background: var(--accent); color: var(--accent-fg); padding: 0.5rem 1rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500;">
-        Bingo — Line complete
+        <!-- Bingo banner -->
+        {% if session.has_bingo %}
+        <div class="text-center text-sm"
+            style="background: var(--accent); color: var(--accent-fg); padding: 0.5rem 1rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500;">
+            Bingo — Line complete
+        </div>
+        {% endif %}
+
+        <!-- Board -->
+        <div class="flex-1 flex items-center justify-center p-3">
+            {% include "components/bingo_board.html" %}
+        </div>
     </div>
-    {% endif %}
 
-    <!-- Board -->
-    <div class="flex-1 flex items-center justify-center p-3">
-        {% include "components/bingo_board.html" %}
-    </div>
-</div>
-
-{% if session.show_bingo_modal %}
+    {% if session.show_bingo_modal %}
     {% include "components/bingo_modal.html" %}
-{% endif %}
+    {% endif %}
 </div>

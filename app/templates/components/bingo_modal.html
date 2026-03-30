@@ -1,19 +1,19 @@
 <div class="fixed inset-0 flex items-center justify-center p-4 z-50" style="background: var(--overlay);">
-    <div class="w-full text-center animate-fade-in" style="max-width: 20rem; background: var(--bg); border: 1px solid var(--border); border-radius: 2px; padding: 2.5rem 2rem;">
+    <div class="w-full text-center animate-fade-in"
+        style="max-width: 20rem; background: var(--bg); border: 1px solid var(--border); border-radius: 2px; padding: 2.5rem 2rem;">
 
         <!-- Typographic BINGO treatment -->
         <div style="margin-bottom: 0.5rem;">
-            <span class="font-serif tracking-tight text-accent" style="font-size: 3.5rem; line-height: 1; display: block;">Bingo.</span>
+            <span class="font-serif tracking-tight text-accent"
+                style="font-size: 3.5rem; line-height: 1; display: block;">Bingo.</span>
         </div>
-        <p class="text-sm" style="color: var(--muted); margin-bottom: 2rem; letter-spacing: 0.04em;">Line complete — keep going</p>
+        <p class="text-sm" style="color: var(--muted); margin-bottom: 2rem; letter-spacing: 0.04em;">Line complete —
+            keep going</p>
 
         <!-- Divider -->
         <div style="border-top: 1px solid var(--border); margin-bottom: 1.5rem;"></div>
 
-        <button
-            hx-post="/dismiss-modal"
-            hx-target="#game-container"
-            hx-swap="outerHTML"
+        <button hx-post="/dismiss-modal" hx-target="#game-container" hx-swap="outerHTML"
             class="w-full bg-accent text-white transition-colors"
             style="padding: 0.875rem; font-size: 0.8125rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; border-radius: 2px;">
             Keep Playing
