@@ -1,3 +1,20 @@
+/* ===== CSS Variables — Bauhaus Carta Calda ===== */
+:root {
+    --bg: #F4EFE6;
+    --ink: #18160F;
+    --accent: #C0392B;
+    --accent-fg: #F4EFE6;
+    --muted: #8A8278;
+    --surface: #EDE7DC;
+    --border: #C8BFB0;
+    --marked-bg: #F9E0D8;
+    --marked-border: #C0392B;
+    --winning-bg: #C0392B;
+    --winning-fg: #F4EFE6;
+    --overlay: rgba(24, 22, 15, 0.65);
+}
+
+/* ===== Reset & Base ===== */
 html,
 body,
 #app {
@@ -6,11 +23,20 @@ body,
 }
 
 body {
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: 'DM Mono', 'Courier New', monospace;
+    background-color: var(--bg);
+    color: var(--ink);
     -webkit-tap-highlight-color: transparent;
 }
 
-/* Tailwind-like utility classes */
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font: inherit;
+}
+
+/* ===== Layout ===== */
 .h-full { height: 100%; }
 .min-h-full { min-height: 100%; }
 .w-full { width: 100%; }
@@ -30,6 +56,7 @@ body {
 .grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .gap-1 { gap: 0.25rem; }
 
+/* ===== Spacing ===== */
 .p-1 { padding: 0.25rem; }
 .p-3 { padding: 0.75rem; }
 .p-4 { padding: 1rem; }
@@ -50,27 +77,34 @@ body {
 .mb-8 { margin-bottom: 2rem; }
 .mx-auto { margin-left: auto; margin-right: auto; }
 
-.bg-white { background-color: #ffffff; }
-.bg-gray-50 { background-color: #f9fafb; }
-.bg-gray-100 { background-color: #f3f4f6; }
-.bg-amber-100 { background-color: #fef3c7; }
-.bg-amber-200 { background-color: #fde68a; }
-.bg-accent { background-color: #2563eb; }
-.bg-marked { background-color: #dcfce7; }
-.bg-black\/50 { background-color: rgba(0, 0, 0, 0.5); }
+/* ===== Backgrounds ===== */
+.bg-white { background-color: var(--bg); }
+.bg-gray-50 { background-color: var(--bg); }
+.bg-gray-100 { background-color: var(--surface); }
+.bg-amber-100 { background-color: var(--surface); }
+.bg-amber-200 { background-color: var(--marked-bg); }
+.bg-accent { background-color: var(--accent); }
+.bg-marked { background-color: var(--marked-bg); }
+.bg-surface { background-color: var(--surface); }
+.bg-black\/50 { background-color: var(--overlay); }
 
-.text-white { color: #ffffff; }
-.text-gray-500 { color: #6b7280; }
-.text-gray-600 { color: #4b5563; }
-.text-gray-700 { color: #374151; }
-.text-gray-800 { color: #1f2937; }
-.text-gray-900 { color: #111827; }
-.text-green-600 { color: #16a34a; }
-.text-green-800 { color: #166534; }
-.text-amber-500 { color: #f59e0b; }
-.text-amber-800 { color: #92400e; }
-.text-amber-900 { color: #78350f; }
+/* ===== Text Colors ===== */
+.text-white { color: var(--accent-fg); }
+.text-gray-500 { color: var(--muted); }
+.text-gray-600 { color: var(--muted); }
+.text-gray-700 { color: var(--ink); }
+.text-gray-800 { color: var(--ink); }
+.text-gray-900 { color: var(--ink); }
+.text-green-600 { color: var(--accent); }
+.text-green-800 { color: var(--accent); }
+.text-amber-500 { color: var(--accent); }
+.text-amber-800 { color: var(--accent); }
+.text-amber-900 { color: var(--accent); }
+.text-muted { color: var(--muted); }
+.text-accent { color: var(--accent); }
+.text-ink { color: var(--ink); }
 
+/* ===== Typography Sizes ===== */
 .text-xs { font-size: 0.75rem; line-height: 1rem; }
 .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
 .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
@@ -78,28 +112,40 @@ body {
 .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
 .text-5xl { font-size: 3rem; line-height: 1; }
 
-.font-semibold { font-weight: 600; }
-.font-bold { font-weight: 700; }
+/* ===== Typography Style ===== */
+.font-semibold { font-weight: 500; }
+.font-bold { font-weight: 500; }
+.font-serif { font-family: 'DM Serif Display', Georgia, serif; }
+.tracking-tight { letter-spacing: -0.02em; }
+.tracking-wide { letter-spacing: 0.08em; }
 
 .text-center { text-align: center; }
 .text-left { text-align: left; }
+.leading-tight { line-height: 1.25; }
 
-.border { border-width: 1px; }
-.border-b { border-bottom-width: 1px; }
-.border-gray-200 { border-color: #e5e7eb; }
-.border-gray-300 { border-color: #d1d5db; }
-.border-amber-400 { border-color: #fbbf24; }
-.border-marked-border { border-color: #22c55e; }
+/* ===== Borders ===== */
+.border { border: 1px solid var(--border); }
+.border-b { border-bottom: 1px solid var(--border); }
+.border-ink { border-color: var(--ink); }
+.border-gray-200 { border-color: var(--border); }
+.border-gray-300 { border-color: var(--border); }
+.border-amber-400 { border-color: var(--accent); }
+.border-marked-border { border-color: var(--marked-border); }
 
-.rounded { border-radius: 0.25rem; }
-.rounded-lg { border-radius: 0.5rem; }
-.rounded-xl { border-radius: 0.75rem; }
+/* ===== Border Radius ===== */
+.rounded { border-radius: 2px; }
+.rounded-lg { border-radius: 2px; }
+.rounded-xl { border-radius: 2px; }
 
-.shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
-.shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+/* ===== Shadows ===== */
+.shadow-sm { box-shadow: none; }
+.shadow-xl { box-shadow: none; }
+.shadow-card { box-shadow: 0 1px 4px rgba(24, 22, 15, 0.10); }
 
+/* ===== Spacing helpers ===== */
 .space-y-2 > * + * { margin-top: 0.5rem; }
 
+/* ===== Positioning ===== */
 .fixed { position: fixed; }
 .absolute { position: absolute; }
 .relative { position: relative; }
@@ -109,22 +155,54 @@ body {
 
 .z-50 { z-index: 50; }
 
+/* ===== Sizing ===== */
 .aspect-square { aspect-ratio: 1 / 1; }
+.min-h-\[60px\] { min-height: 60px; }
 
+/* ===== Interactivity ===== */
 .select-none { user-select: none; }
+.wrap-break-word { overflow-wrap: break-word; word-break: break-word; }
+.hyphens-auto { hyphens: auto; }
 
-.transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
-.transition-colors { transition-property: color, background-color, border-color; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
-.duration-150 { transition-duration: 150ms; }
+/* ===== Transitions ===== */
+.transition-all {
+    transition-property: all;
+    transition-timing-function: ease;
+    transition-duration: 200ms;
+}
+.transition-colors {
+    transition-property: color, background-color, border-color;
+    transition-timing-function: ease;
+    transition-duration: 200ms;
+}
+.duration-150 { transition-duration: 200ms; }
 
-button:active .active\:bg-gray-100 { background-color: #f3f4f6; }
-button:active .active\:bg-accent-light { background-color: #3b82f6; }
+/* ===== Interactive States ===== */
+button.active\:bg-gray-100:active,
+button:active.active\:bg-gray-100 { background-color: var(--surface); }
+button.active\:bg-accent-light:active,
+button:active.active\:bg-accent-light { background-color: #a93226; }
 
-button {
-    cursor: pointer;
-    border: none;
-    background: none;
-    font: inherit;
+/* ===== Semantic Cell States ===== */
+.winning-cell {
+    background-color: var(--winning-bg) !important;
+    border-color: var(--winning-bg) !important;
+    color: var(--winning-fg) !important;
+}
+
+/* ===== Animations ===== */
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fade-in 200ms ease forwards;
+}
+
+/* Keep bounce alias for backward compat */
+.animate-\[bounce_0\.5s_ease-out\] {
+    animation: fade-in 200ms ease forwards;
 }
 
 button:disabled {

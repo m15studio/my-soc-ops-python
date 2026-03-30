@@ -1,27 +1,25 @@
 <div id="game-container">
-<div class="flex flex-col min-h-full bg-gray-50">
+<div class="flex flex-col min-h-full" style="background: var(--bg);">
     <!-- Header -->
-    <header class="flex items-center justify-between p-3 bg-white border-b border-gray-200">
+    <header class="flex items-center justify-between border-b" style="padding: 0.875rem 1rem; background: var(--surface);">
         <button
             hx-post="/reset"
             hx-target="#game-container"
             hx-swap="outerHTML"
-            class="text-gray-500 text-sm px-3 py-1.5 rounded active:bg-gray-100">
+            class="text-sm transition-colors"
+            style="color: var(--muted); padding: 0.375rem 0.625rem; border-radius: 2px;"
+            onmouseenter="this.style.color='var(--ink)'"
+            onmouseleave="this.style.color='var(--muted)'">
             ← Back
         </button>
-        <h1 class="font-bold text-gray-900">Soc Ops</h1>
+        <span class="font-serif tracking-tight" style="font-size: 1.25rem; color: var(--ink);">Soc Ops</span>
         <div class="w-16"></div>
     </header>
 
-    <!-- Instructions -->
-    <p class="text-center text-gray-500 text-sm py-2 px-4">
-        Tap a square when you find someone who matches it.
-    </p>
-
-    <!-- Bingo indicator -->
+    <!-- Bingo banner -->
     {% if session.has_bingo %}
-    <div class="bg-amber-100 text-amber-800 text-center py-2 font-semibold text-sm">
-        🎉 BINGO! You got a line!
+    <div class="text-center text-sm" style="background: var(--accent); color: var(--accent-fg); padding: 0.5rem 1rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500;">
+        Bingo — Line complete
     </div>
     {% endif %}
 

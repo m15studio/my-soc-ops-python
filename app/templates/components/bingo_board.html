@@ -1,4 +1,4 @@
-<div class="grid grid-cols-5 gap-1 w-full max-w-md mx-auto aspect-square">
+<div class="grid grid-cols-5 w-full mx-auto aspect-square" style="max-width: 28rem; gap: 2px;">
     {% for square in session.board %}
     {% set is_winning = square.id in session.winning_square_ids %}
     <button
@@ -8,19 +8,19 @@
         hx-swap="outerHTML"
         {% endif %}
         {% if square.is_free_space %}disabled{% endif %}
-        class="relative flex items-center justify-center p-1 text-center border border-gray-300 rounded transition-all duration-150 select-none min-h-[60px] text-xs leading-tight
-        {%- if square.is_marked %}
-            {%- if is_winning %} bg-amber-200 border-amber-400 text-amber-900
-            {%- else %} bg-marked border-marked-border text-green-800
-            {%- endif %}
-        {%- else %} bg-white text-gray-700 active:bg-gray-100
-        {%- endif %}
-        {%- if square.is_free_space %} font-bold text-sm{% endif %}"
+        class="relative flex items-center justify-center p-1 text-center transition-colors select-none text-xs leading-tight
+        {%- if is_winning %} winning-cell
+        {%- elif square.is_marked %} bg-marked border-marked-border
+        {%- else %} bg-white text-gray-700
+        {%- endif %}"
+        style="border: 1px solid {% if is_winning %}var(--winning-bg){% elif square.is_marked %}var(--marked-border){% else %}var(--border){% endif %};
+               border-radius: 2px; min-height: 60px;
+               {%- if square.is_free_space %} background: var(--surface); color: var(--muted); font-style: italic;{% endif %}"
         aria-pressed="{{ 'true' if square.is_marked else 'false' }}"
         aria-label="{{ 'Free space' if square.is_free_space else square.text }}">
         <span class="wrap-break-word hyphens-auto">{{ square.text }}</span>
-        {% if square.is_marked and not square.is_free_space %}
-        <span class="absolute top-0.5 right-0.5 text-green-600 text-xs">✓</span>
+        {% if square.is_marked and not square.is_free_space and not is_winning %}
+        <span class="absolute text-accent" style="top: 3px; right: 4px; font-size: 0.6rem; line-height: 1;">×</span>
         {% endif %}
     </button>
     {% endfor %}
