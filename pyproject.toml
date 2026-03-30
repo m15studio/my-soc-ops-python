@@ -24,9 +24,10 @@ dev = [
 [tool.ruff]
 target-version = "py313"
 line-length = 88
+exclude = [".solutions"]
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "N", "W"]
+select = ["E", "F", "I", "N", "W", "F841", "ANN201", "ANN202"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
